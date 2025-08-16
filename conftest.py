@@ -3,8 +3,7 @@ import pytest
 import allure
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
-from pages.signin_page import SigninPage
-from pages.main_page import MainPage
+# from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
 @allure.step('Фикстура: инициализация драйвера браузера')
@@ -16,14 +15,14 @@ def driver():
     chrome_options = ChromeOptions()
     chrome_options.add_argument("--incognito")
     chrome_options.add_argument(f"--window-size=1400,1000")
-    capabilities = {
-        "browserName": "chrome",
-        "browserVersion": "128.0",
-        "selenoid:options": {
-            "enableVNC": True,
-            "enableVideo": False
-        }
-    }
+    # capabilities = {
+    #     "browserName": "chrome",
+    #     "browserVersion": "128.0",
+    #     "selenoid:options": {
+    #         "enableVNC": True,
+    #         "enableVideo": False
+    #     }
+    # }
     
     driver_instance = webdriver.Remote(
         command_executor=selenoid_url,
@@ -50,9 +49,11 @@ def driver():
 @allure.step('Фикстура: инициализация объекта класса SigninPage')
 @pytest.fixture
 def signin_page(driver):
+    from pages.signin_page import SigninPage
     return SigninPage(driver)
 
 @allure.step('Фикстура: инициализация объекта класса MainPage')
 @pytest.fixture
 def main_page(driver):
+    from pages.main_page import MainPage
     return MainPage(driver)

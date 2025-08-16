@@ -17,13 +17,15 @@ services:
     build: .
     container_name: test_docker
     depends_on:
-      - selenoid
+      selenoid:
+        condition: service_started
     environment:
       SELENOID_URL: "http://selenoid:4444/wd/hub"
+    volumes:
+      - ./allure_results:/app/allure_results
     networks:
       - selenoid
-    tty: true
-    command: ["pytest", "--alluredir=allure_results"]
+    command: ["pytest", "tests", "--alluredir=allure_results"]
 
 networks:
   selenoid:

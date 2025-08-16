@@ -9,9 +9,20 @@ jobs:
   run-selenoid-tests:
     runs-on: ubuntu-latest
     steps:
-      # Первый шаг оставим таким же
-      - name: Check out repository code  
-        uses: actions/checkout@v3 
-      # Поднимаем контейнеры и выходим при завершении работы контейнера test_docker
-      - name: Run tests in docker
-        run: docker compose up --build --exit-code-from tests
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        
+      - name: Set up Docker Compose
+        run: |
+          docker compose up -d selenoid
+          sleep 10  # Wait for Selenoid initialization
+          
+      - name: Run tests
+        run: docker compose run tests
+
+      - name: Save Allure results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: ./allure-results
