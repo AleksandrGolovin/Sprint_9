@@ -23,7 +23,7 @@ services:
       - ./allure-results:/app/allure-results
     networks:
       - selenoid
-    command: ["pytest", "--alluredir=allure-results"]
+    command: ["pytest", "-o", "testpaths=tests", "--alluredir=allure-results"]
 
 networks:
   selenoid:
