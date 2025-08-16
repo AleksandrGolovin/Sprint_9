@@ -1,8 +1,6 @@
 import allure
 
 
-pytest_plugins = ["conftest"]
-
 @allure.title('Тестовые сценарии страницы регистрации')
 class TestSignupPage:
     

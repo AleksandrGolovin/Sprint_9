@@ -3,8 +3,6 @@ import pytest
 from data import TEST_EMAIL, TEST_PASSWORD
 
 
-pytest_plugins = ["conftest"]
-
 @allure.title('Тестовые сценарии страницы авторизации')
 class TestSigninPage:
     

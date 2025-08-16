@@ -7,7 +7,7 @@ from selenium.webdriver import ChromeOptions
 
 
 @allure.step('Фикстура: инициализация драйвера браузера')
-@pytest.fixture
+@pytest.fixture(scope="function")
 def driver():
     selenoid_url = os.getenv('SELENOID_URL', 'http://localhost:4444/wd/hub')
     
@@ -47,13 +47,13 @@ def driver():
 #     driver_instance.quit()
 
 @allure.step('Фикстура: инициализация объекта класса SigninPage')
-@pytest.fixture
+@pytest.fixture(scope="function")
 def signin_page(driver):
     from pages.signin_page import SigninPage
     return SigninPage(driver)
 
 @allure.step('Фикстура: инициализация объекта класса MainPage')
-@pytest.fixture
+@pytest.fixture(scope="function")
 def main_page(driver):
     from pages.main_page import MainPage
     return MainPage(driver)
