@@ -24,18 +24,6 @@ def driver():
     
     driver_instance.quit()
 
-# @allure.step('Фикстура: инициализация драйвера браузера')
-# @pytest.fixture
-# def driver_local():
-#     chrome_options = ChromeOptions()
-#     chrome_options.add_argument("--incognito")
-#     chrome_options.add_argument(f"--window-size=1400,1000")
-#     driver_instance = webdriver.Chrome(options=chrome_options)
-    
-#     yield driver_instance
-    
-#     driver_instance.quit()
-
 @allure.step('Фикстура: инициализация объекта класса SigninPage')
 @pytest.fixture(scope="function")
 def signin_page(driver):

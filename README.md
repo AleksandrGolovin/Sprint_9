@@ -58,6 +58,11 @@
 
 ## Генерация и просмотр отчетов Allure
 
+Отчет создается автоматически внутри Github Actions Pipeline, сохранятся как артефакт.
+https://github.com/AleksandrGolovin/Sprint_9/actions
+
+Прочие команды allure ниже.
+
 1. Запустите сервер с отчетом:  
 > `allure serve allure-results`
 

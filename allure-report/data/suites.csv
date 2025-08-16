@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Aug 16 18:40:54 UTC 2025","Sat Aug 16 18:40:58 UTC 2025","3245","tests","test_signup_page","TestSignupPage","","","Проверка регистрации нового пользователя","Открыть главную страницу, перейти на страницу регистрации, создать новый аккаунт, проверить, что перешли на страницу логина"
+"passed","Sat Aug 16 18:40:51 UTC 2025","Sat Aug 16 18:40:53 UTC 2025","2674","tests","test_signin_page","TestSigninPage","","","Проверка авторизации пользователя","Открыть страницу логина, залогиниться, проверить, что перешли на страницу рецептов"
+"passed","Sat Aug 16 18:40:43 UTC 2025","Sat Aug 16 18:40:50 UTC 2025","7289","tests","test_recipes_page","TestRecipesPage","","","Проверка создания рецепта","Открыть страницу логина, залогиниться, проверить, что перешли на страницу рецептов"

@@ -7,7 +7,7 @@ from data import TEST_EMAIL, TEST_PASSWORD
 class TestRecipesPage:
     
     @allure.title('Проверка создания рецепта')
-    @allure.description('Открыть страницу логина, залогиниться, проверить, что перешли на страницу рецептов')
+    @allure.description('Открыть страницу логина, залогиниться, создать рецепт, проверить, что рецепт создан')
     @pytest.mark.parametrize('email, password', [(TEST_EMAIL, TEST_PASSWORD)])
     def test_signin_page_auth_seccess(self, email, password, signin_page):
         signin_page.open()
