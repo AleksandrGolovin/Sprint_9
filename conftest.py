@@ -9,9 +9,9 @@ from selenium.webdriver import ChromeOptions
 @allure.step('Фикстура: инициализация драйвера браузера')
 @pytest.fixture(scope="function")
 def driver():
+    print('driver enter')
     selenoid_url = os.getenv('SELENOID_URL', 'http://localhost:4444/wd/hub')
     
-    chrome_options = ChromeOptions()
     chrome_options = ChromeOptions()
     chrome_options.add_argument("--incognito")
     chrome_options.add_argument(f"--window-size=1400,1000")
@@ -28,10 +28,10 @@ def driver():
         command_executor=selenoid_url,
         options=chrome_options
     )
-    driver_instance.maximize_window()
-    
+    print('driver middle')
     yield driver_instance
     
+    print('driver quit')
     driver_instance.quit()
 
 # @allure.step('Фикстура: инициализация драйвера браузера')
