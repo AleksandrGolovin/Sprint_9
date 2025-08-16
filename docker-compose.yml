@@ -19,11 +19,12 @@ services:
         condition: service_started
     environment:
       SELENOID_URL: "http://selenoid:4444/wd/hub"
+      PYTHONPATH: "/app"
     volumes:
       - ./allure-results:/app/allure-results
     networks:
       - selenoid
-    command: ["pytest", "tests", "--alluredir=allure-results"]
+    command: ["pytest", "--rootdir=/app", "--alluredir=allure-results"]
 
 networks:
   selenoid:
