@@ -16,16 +16,11 @@ jobs:
       
       - name: Pull selenoid image
         run: docker pull selenoid/chrome:128.0
-        
-      # - name: Set up Docker Compose
-      #   run: |
-      #     docker compose up -d selenoid
-      #     sleep 10
-          
-      # - name: Run tests
-      #   run: docker compose run tests
+
       - name: Run tests in docker
         run: docker compose up --build --exit-code-from tests 
+        env:
+          SELENOID_URL: "http://selenoid:4444/wd/hub"
 
       - name: Save Allure results
         if: always()
