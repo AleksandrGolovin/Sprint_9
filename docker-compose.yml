@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    container_name: selenoid
+    ports:
+      - "4444:4444"
+    volumes:
+      - "./browsers.json:/etc/selenoid/browsers.json"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - selenoid
+    command: ["-conf", "/etc/selenoid/browsers.json", "-container-network", "selenoid"]
+
+  tests:
+    build: .
+    container_name: test_docker
+    depends_on:
+      - selenoid
+    environment:
+      SELENOID_URL: "http://selenoid:4444/wd/hub"
+    networks:
+      - selenoid
+    tty: true
+    command: ["pytest"]
+
+networks:
+  selenoid:
+    name: selenoid 

@@ -1,0 +1,17 @@
+name: Selenoid Tests Workflow
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  # Переименуем задачу
+  run-selenoid-tests:
+    runs-on: ubuntu-latest
+    steps:
+      # Первый шаг оставим таким же
+      - name: Check out repository code  
+        uses: actions/checkout@v3 
+      # Поднимаем контейнеры и выходим при завершении работы контейнера test_docker
+      - name: Run tests in docker
+        run: docker compose up --build --exit-code-from test_docker
