@@ -22,10 +22,10 @@ services:
     environment:
       SELENOID_URL: "http://selenoid:4444/wd/hub"
     volumes:
-      - ./allure_results:/app/allure_results
+      - ./allure-results:/app/allure-results
     networks:
       - selenoid
-    command: ["pytest", "tests", "--alluredir=allure_results"]
+    command: ["pytest", "tests", "--alluredir=allure-results"]
 
 networks:
   selenoid:
