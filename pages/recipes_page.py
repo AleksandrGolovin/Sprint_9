@@ -64,10 +64,10 @@ class RecipesPage(BasePage):
     @allure.step('Проверка создания рецепта')
     def is_recipe_adding(self, recipe_name):
         by_type, locator = RecipesLocators.H1_RECIPE
-        formatted_locator = by_type, locator.format(data=recipe_name)
+        h1_recipe_title_locator = by_type, locator.format(data=recipe_name)
         conditions = [
             self.find_visible_element(RecipesLocators.DIV_SINGLE_CARD),
-            self.find_visible_element(formatted_locator)
+            self.find_visible_element(h1_recipe_title_locator)
         ]
         return all(conditions)
     
