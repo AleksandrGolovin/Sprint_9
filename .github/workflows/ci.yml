@@ -18,7 +18,7 @@ jobs:
         run: docker pull selenoid/chrome:128.0
 
       - name: Run tests in docker
-        run: docker compose up --build --exit-code-from tests 
+        run: docker compose up --build --exit-code-from test_docker 
         env:
           SELENOID_URL: "http://selenoid:4444/wd/hub"
 
