@@ -21,10 +21,20 @@ jobs:
 
       - name: Print project tree
         run: tree .
-        
-      - name: Save Allure results
+
+      - name: Generate Allure report
+        run: allure generate allure-results -o allure-report --clean
+      
+      # - name: Save Allure results
+      #   if: always()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: allure-results
+      #     path: ./allure-results
+          
+      - name: Save Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
-          path: ./allure-results
+          name: allure-report
+          path: ./allure-report

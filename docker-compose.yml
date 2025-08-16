@@ -35,6 +35,9 @@ services:
     networks:
       - selenoid
     tty: true
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
     command: ["pytest", "tests", "--alluredir=allure-results"]
 
 networks:

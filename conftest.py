@@ -7,8 +7,6 @@ from pages.main_page import MainPage
 from pages.signin_page import SigninPage
 
 
-print("Conftest is loaded!")
-
 @allure.step('Фикстура: инициализация драйвера браузера')
 @pytest.fixture(scope="function")
 def driver():
@@ -26,17 +24,17 @@ def driver():
     
     driver_instance.quit()
 
-@allure.step('Фикстура: инициализация драйвера браузера')
-@pytest.fixture
-def driver_local():
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument("--incognito")
-    chrome_options.add_argument(f"--window-size=1400,1000")
-    driver_instance = webdriver.Chrome(options=chrome_options)
+# @allure.step('Фикстура: инициализация драйвера браузера')
+# @pytest.fixture
+# def driver_local():
+#     chrome_options = ChromeOptions()
+#     chrome_options.add_argument("--incognito")
+#     chrome_options.add_argument(f"--window-size=1400,1000")
+#     driver_instance = webdriver.Chrome(options=chrome_options)
     
-    yield driver_instance
+#     yield driver_instance
     
-    driver_instance.quit()
+#     driver_instance.quit()
 
 @allure.step('Фикстура: инициализация объекта класса SigninPage')
 @pytest.fixture(scope="function")
