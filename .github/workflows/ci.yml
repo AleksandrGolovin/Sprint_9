@@ -11,9 +11,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       
-      - name: Print project tree
-        run: tree .
-      
       - name: Pull selenoid image
         run: docker pull selenoid/chrome:128.0
 
@@ -22,6 +19,9 @@ jobs:
         env:
           SELENOID_URL: "http://selenoid:4444/wd/hub"
 
+      - name: Print project tree
+        run: tree .
+        
       - name: Save Allure results
         if: always()
         uses: actions/upload-artifact@v4
