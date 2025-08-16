@@ -57,6 +57,10 @@ services:
   test_docker:
     build: .
     container_name: test_docker
+    links:
+      - selenoid
+    environment:
+      - SELENOID_URL=http://selenoid:4444/wd/hub
     depends_on:
       - selenoid
     networks:
