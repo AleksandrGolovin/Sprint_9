@@ -23,7 +23,7 @@ services:
     networks:
       - selenoid
     tty: true
-    command: ["pytest"]
+    command: ["pytest", "--alluredir=allure_results"]
 
 networks:
   selenoid:

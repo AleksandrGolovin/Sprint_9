@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v3 
       # Поднимаем контейнеры и выходим при завершении работы контейнера test_docker
       - name: Run tests in docker
-        run: docker compose up --build --exit-code-from test_docker
+        run: docker compose up --build --exit-code-from tests
