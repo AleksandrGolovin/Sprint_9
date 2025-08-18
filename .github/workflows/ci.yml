@@ -1,4 +1,4 @@
-name: Selenoid Tests Workflow
+name: Selenoid Tests Workflow with Allure Report
 on:
   push:
     branches:
@@ -22,29 +22,6 @@ jobs:
 
       - name: Print project tree
         run: tree .
-        
-      # - name: Setup Java
-      #   uses: actions/setup-java@v4
-      #   with:
-      #     java-version: 17
-      #     distribution: 'temurin'
-      
-      # - name: Install Allure
-      #   run: |
-      #     wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
-      #     tar -zxvf allure-2.27.0.tgz -C /opt/
-      #     sudo ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
-      #     rm allure-2.27.0.tgz
-
-      # - name: Generate Allure report
-      #   run: allure generate allure-results -o allure-report --clean
-
-      # - name: Save Allure report
-      #   if: always()
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: allure-report
-      #     path: ./allure-report
 
       - name: Get Allure history
         uses: actions/checkout@v2
