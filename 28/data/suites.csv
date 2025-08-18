@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Открыть главную страницу, перейти на страницу регистрации, создать новый аккаунт, проверить, что перешли на страницу логина","2542","Проверка регистрации нового пользователя","tests","Mon Aug 18 20:12:47 UTC 2025","passed","Mon Aug 18 20:12:50 UTC 2025","TestSignupPage","test_signup_page","",""
+"Открыть страницу логина, залогиниться, создать рецепт, проверить, что рецепт создан","5540","Проверка создания рецепта","tests","Mon Aug 18 20:12:38 UTC 2025","passed","Mon Aug 18 20:12:43 UTC 2025","TestRecipesPage","test_recipes_page","",""
+"Открыть страницу логина, залогиниться, проверить, что перешли на страницу рецептов","1969","Проверка авторизации пользователя","tests","Mon Aug 18 20:12:44 UTC 2025","passed","Mon Aug 18 20:12:46 UTC 2025","TestSigninPage","test_signin_page","",""
